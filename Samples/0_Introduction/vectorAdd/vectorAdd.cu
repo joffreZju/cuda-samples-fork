@@ -144,6 +144,7 @@ int main(void) {
   int blocksPerGrid = (numElements + threadsPerBlock - 1) / threadsPerBlock;
   printf("CUDA kernel launch with %d blocks of %d threads\n", blocksPerGrid,
          threadsPerBlock);
+  printf("app params 1:%p, 2:%p, 3:%p\n", d_A, d_B, d_C);
   vectorAdd<<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, numElements);
   err = cudaGetLastError();
 
